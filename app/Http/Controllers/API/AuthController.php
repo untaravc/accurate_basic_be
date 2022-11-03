@@ -43,9 +43,13 @@ class AuthController extends Controller
         return $this->response;
     }
 
+    public function auth(Request $request){
+        $this->response['result'] = $request->user();
+        return $this->response;
+    }
+
     public function logout(Request $request){
         $request->user()->currentAccessToken()->delete();
-        
         return $this->response;
     }
 }

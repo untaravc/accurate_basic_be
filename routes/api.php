@@ -10,6 +10,7 @@ Route::group(['prefix'=>'panel'], function(){
 
 Route::group(['prefix'=>'panel', 'middleware'=>'auth:sanctum'], function(){
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::get('auth', [AuthController::class, 'auth']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
