@@ -37,8 +37,15 @@ class AuthController extends Controller
 
         $token = $user->createToken('panel');
 
+        $this->response['status'] = true;
         $this->response['result'] = $user;
         $this->response['token'] = $token->plainTextToken;
+        return $this->response;
+    }
+
+    public function logout(Request $request){
+        $request->user()->currentAccessToken()->delete();
+        
         return $this->response;
     }
 }
