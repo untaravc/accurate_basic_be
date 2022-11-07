@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\BranchController;
 
 Route::group(['prefix'=>'panel'], function(){
     Route::post('login', [AuthController::class, 'login']);
@@ -15,5 +16,6 @@ Route::group(['prefix'=>'panel', 'middleware'=>'auth:sanctum'], function(){
 
     // CRUD
     Route::resource('products', ProductController::class);
+    Route::resource('branches', BranchController::class);
 
 });
