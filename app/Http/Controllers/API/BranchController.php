@@ -60,10 +60,10 @@ class BranchController extends Controller
     }
 
     public function destroy($id){
-        $product = Branch::find($id);
+        $data = Branch::find($id);
 
-        if($product){
-            $product->delete();
+        if($data){
+            $data->delete();
         }else{
             $this->response['status'] = false;
             $this->response['text'] = 'data not found';
